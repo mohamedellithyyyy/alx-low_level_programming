@@ -1,28 +1,28 @@
-#include "main.h"
+#include "holberton.h"
 
 /**
- * print_binary - prints the binary representation of a number
- *
- * @n: prints in binary
+ * print_binary - A function that prints a binary number without % or /
+ * @n: The number to be printed
+ * Return: Nothing
  */
-
 void print_binary(unsigned long int n)
 {
-	int x, z = 0;
-	unsigned long int current;
+	unsigned int flag = 0, max = 32768; /* 1000 0000 0000 0000 */
 
-	for (x = 63; x >= 0; x--)
+	if (n == 0)
 	{
-		current = n >> x;
-
-		if (current & 1)
+		_putchar('0');
+		return;
+	}
+	while (max)
+	{
+		if (flag == 1 && (n & max) == 0)
+			_putchar('0');
+		else if ((n & max) != 0)
 		{
 			_putchar('1');
-			z++;
+			flag = 1;
 		}
-		else if (z)
-			_putchar('0');
+		max >>= 1;
 	}
-	if (!z)
-		_putchar('0');
 }

@@ -1,25 +1,21 @@
-#include "main.h"
+#include "holberton.h"
 
 /**
- * get_bit -  returns the value of a bit at a given index
- *
- * @n: number of the bit
- * @index: index of where the bit is
- *
- * Return: the value of the bit at index index or -1 if an error occured
+ * get_bit - A function that gets a bit at index
+ * @n: The number to get bit from
+ * @index: The index where the bit get at
+ * Return: The value of the bit or -1 if an error occured
  */
-
 int get_bit(unsigned long int n, unsigned int index)
 {
-	unsigned long int bit_value = 0x01;
+	unsigned long int max = 0x01;
 
-	bit_value <<= index;
-	if (bit_value == 0)
+	max <<= index;
+	if (max == 0)
 		return (-1);
 
-	if ((n & bit_value))
+	if ((n & max))
 		return (1);
 	else
 		return (0);
 }
-

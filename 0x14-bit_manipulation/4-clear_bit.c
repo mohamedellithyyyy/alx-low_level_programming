@@ -1,22 +1,18 @@
-#include "main.h"
+#include "holberton.h"
 
 /**
- * clear_bit - sets the value of a bit to 0 at a given index
- *
- * @n: value to set the bit
- * @index: index of the bit you want to set
- *
- * Return: 1 if it worked, or -1 if an error occurred
+ * clear_bit - A function that sets a bit to 0 at given index
+ * @n: The number to set bit in
+ * @index: The index to set bit at
+ * Return: 1 if it worked, or -1 on error
  */
-
 int clear_bit(unsigned long int *n, unsigned int index)
 {
-	unsigned long int bit_value = 0x01;
+	unsigned long int max = 0x01;
 
-	bit_value <<= index;
-	if (bit_value == 0)
+	max = ~(max << index);
+	if (max == 0x00)
 		return (-1);
-
-	*n &= ~bit_value;
+	*n &= max;
 	return (1);
 }

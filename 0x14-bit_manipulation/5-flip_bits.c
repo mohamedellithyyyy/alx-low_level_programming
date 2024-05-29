@@ -1,27 +1,20 @@
-#include "main.h"
-
 /**
- * flip_bits - returns number of fliped bits from one number to another
- *
- * @n: number of flipped bits
- * @m: number of flips
- *
- * Return: number of bits flipped
+ * flip_bits - A function that gets number of bits needed to flip
+ * @n: How many bit flips are needed to equal m for n
+ * @m: The number to set other equal
+ * Return: The number of fliped bits
  */
-
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	int flips = 0;
-	unsigned long int max;
-	unsigned long int XOR = n ^ m;
-	unsigned long int a;
+	unsigned int flips = 0;
+	unsigned long int xor = (n ^ m);
+	unsigned long int max = 0x01;
 
-	for (a = 63; a != (unsigned long int)-1; a--)
+	while (max <= xor)
 	{
-		max = XOR >> a;
-		if (max & 1)
+		if (max & xor)
 			flips++;
+		max <<= 1;
 	}
-
 	return (flips);
 }
