@@ -1,9 +1,11 @@
 #include "m.h"
 
 /**
- * print_school
+ * print_school - print the log of school
  *
  * Return: Nothing
+ *
+ * Learn more: https://www.alxafrica.com
  */
 void print_school(void)
 {
